@@ -62,12 +62,8 @@ public class XMLAccessor extends Accessor {
 
             loadElement(slides, presentation);
 
-        } catch (IOException iox) {
-            System.err.println(iox.toString());
-        } catch (SAXException sax) {
-            System.err.println(sax.getMessage());
-        } catch (ParserConfigurationException pcx) {
-            System.err.println(PCE);
+        } catch (Exception exception) {
+            System.err.println(exception.getMessage());
         }
     }
 
@@ -78,11 +74,8 @@ public class XMLAccessor extends Accessor {
      * @param presentation Presentation
      */
     private void loadElement(NodeList slides, Presentation presentation) {
-        int slideNumber, itemNumber, max, maxItems;
         Slide slide;
-        max = slides.getLength();
-
-        for (slideNumber = 0; slideNumber < max; slideNumber++) {
+        for (int slideNumber = 0; slideNumber < slides.getLength(); slideNumber++) {
             Element xmlSlide = (Element) slides.item(slideNumber);
 
             slide = new Slide();
@@ -90,8 +83,7 @@ public class XMLAccessor extends Accessor {
             presentation.addSlide(slide);
 
             NodeList slideItems = xmlSlide.getElementsByTagName(ITEM);
-            maxItems = slideItems.getLength();
-            for (itemNumber = 0; itemNumber < maxItems; itemNumber++) {
+            for (int itemNumber = 0; itemNumber < slideItems.getLength(); itemNumber++) {
                 Element item = (Element) slideItems.item(itemNumber);
                 loadSlideItem(slide, item);
             }
@@ -149,9 +141,7 @@ public class XMLAccessor extends Accessor {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
         out.println("<?xml version=\"1.0\"?>");
         out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
-
         saveXMLPresentation(out, presentation);
-
         out.close();
     }
     private void saveXMLPresentation(PrintWriter out, Presentation presentation) {
@@ -171,7 +161,7 @@ public class XMLAccessor extends Accessor {
         out.println("<title>" + slide.getTitle() + "</title>");
         Vector<SlideItem> slideItems = slide.getSlideItems();
         for (int itemNumber = 0; itemNumber < slideItems.size(); itemNumber++) {
-            SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
+            SlideItem slideItem = slideItems.elementAt(itemNumber);
             saveXMLItem(out, slideItem);
         }
         out.println("</slide>");

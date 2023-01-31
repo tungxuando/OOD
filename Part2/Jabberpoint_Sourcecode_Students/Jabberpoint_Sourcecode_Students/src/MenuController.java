@@ -9,6 +9,7 @@ import java.io.IOException;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 public class MenuController extends MenuBar {
+    private MenuItem menuItem;
 
     private final Frame parent; //The frame, only used as parent for the Dialogs //NOTE: final
     private final Presentation presentation; //Commands are given to the presentation //NOTE: final
@@ -28,6 +29,7 @@ public class MenuController extends MenuBar {
 
     private void presentationMenu() {
         Menu viewMenu = new Menu(MenuField.FILE);
+
         add(viewMenu);
         this.openButton(viewMenu);
         this.clearButton(viewMenu);
@@ -96,8 +98,7 @@ public class MenuController extends MenuBar {
      * @param fileMenu the menu where the button is added
      */
     private void openButton(Menu fileMenu) {
-        MenuItem menuItem;
-        fileMenu.add(menuItem = mkMenuItem(MenuField.OPEN));
+        fileMenu.add(this.menuItem = mkMenuItem(MenuField.OPEN));
         menuItem.addActionListener(actionEvent -> {
             presentation.clear();
             Accessor xmlAccessor = new XMLAccessor();
@@ -154,8 +155,7 @@ public class MenuController extends MenuBar {
      * @param viewMenu the menu where the button is added
      */
     private void getPrevSlide(Menu viewMenu) {
-        MenuItem menuItem;
-        viewMenu.add(menuItem = mkMenuItem(MenuField.PREV));
+        viewMenu.add(this.menuItem = mkMenuItem(MenuField.PREV));
         menuItem.addActionListener(actionEvent -> presentation.prevSlide());
         ;
     }
@@ -166,12 +166,17 @@ public class MenuController extends MenuBar {
      * @param viewMenu the menu where the button is added
      */
     private void goToSlide(Menu viewMenu) {
-        MenuItem menuItem;
-        viewMenu.add(menuItem = mkMenuItem(MenuField.GOTO));
-        menuItem.addActionListener(actionEvent -> {
+        viewMenu.add(this.menuItem = mkMenuItem(MenuField.GOTO));
+        this.menuItem.addActionListener(actionEvent -> {
             String pageNumberStr = JOptionPane.showInputDialog(MenuField.PAGENR);
             int pageNumber = Integer.parseInt(pageNumberStr);
-            presentation.setSlideNumber(pageNumber - 1);
+
+            if(pageNumber > 0 && pageNumber <= presentation.getSize()){
+                presentation.setSlideNumber(pageNumber - 1);
+            }
+            else {
+                presentation.setSlideNumber(presentation.getSlideNumber());
+            }
         });
     }
 }
