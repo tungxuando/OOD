@@ -10,7 +10,7 @@ import java.util.Vector;
  */
 
 public class Slide {
-    public final static int WIDTH = 1200, HEIGHT = 800;
+    //public final static int WIDTH = 1200, HEIGHT = 800;
     protected String title; //The title is kept separately
     protected Vector<SlideItem> items; //The SlideItems are kept in a vector
 
@@ -82,7 +82,7 @@ public class Slide {
 
     //Returns the scale to draw a slide
     private float getScale(Rectangle area) {
-        return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));
+        return Math.min(((float) area.width) / ((float) Measurement.WIDTH.getSize()), ((float) area.height) / ((float) Measurement.HEIGHT.getSize()));
     }
 
 	private int getElements(Graphics graphics, ImageObserver observer, int y, Rectangle area, SlideItem slideItem ) {

@@ -102,7 +102,7 @@ public class TextItem extends SlideItem {
         List<TextLayout> layouts = new ArrayList<TextLayout>();
         AttributedString attrStr = getAttributedString(style, scale);
         LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), ((Graphics2D) graphics).getFontRenderContext());
-        float wrappingWidth = (Slide.WIDTH - style.getIndent()) * scale;
+        float wrappingWidth = (Measurement.WIDTH.getSize() - style.getIndent()) * scale;
 
         while (measurer.getPosition() < getText().length()) {
             TextLayout layout = measurer.nextLayout(wrappingWidth);
