@@ -22,22 +22,6 @@ import java.util.Vector;
  */
 
 public class XMLAccessor extends Accessor {
-
-    /**
-     * Default API to use.
-     */
-    protected static final String DEFAULT_API_TO_USE = "dom";
-
-    /**
-     * Names of xml tags of attributes
-     */
-    protected static final String SHOWTITLE = "showtitle", SLIDETITLE = "title", SLIDE = "slide", ITEM = "item", LEVEL = "level", KIND = "kind", TEXT = "text", IMAGE = "image";
-
-    /**
-     * Text of messages
-     */
-    protected static final String PCE = "Parser Configuration Exception", UNKNOWNTYPE = "Unknown Element type", NFE = "Number Format Exception";
-
     @Override
     public void loadFile(Presentation p, String fn) throws IOException {
     }

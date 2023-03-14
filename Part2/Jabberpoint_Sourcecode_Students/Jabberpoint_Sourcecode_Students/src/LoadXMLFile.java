@@ -23,9 +23,9 @@ public class LoadXMLFile extends XMLAccessor {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = builder.parse(new File(fileName)); //Create a JDOM document
             Element doc = document.getDocumentElement();
-            presentation.setTitle(getTitle(doc, SHOWTITLE));
+            presentation.setTitle(getTitle(doc, XMLTag.SHOWTITLE.getValue()));
 
-            NodeList slides = doc.getElementsByTagName(SLIDE);
+            NodeList slides = doc.getElementsByTagName(XMLTag.SLIDE.getValue());
 
             loadElement(slides, presentation);
 
@@ -34,7 +34,7 @@ public class LoadXMLFile extends XMLAccessor {
         } catch (SAXException sax) {
             System.err.println(sax.getMessage());
         } catch (ParserConfigurationException pcx) {
-            System.err.println(PCE);
+            System.err.println(XMLException.parseError());
         }
     }
 
@@ -58,10 +58,10 @@ public class LoadXMLFile extends XMLAccessor {
             Element xmlSlide = (Element) slides.item(slideNumber);
 
             slide = new Slide();
-            slide.setTitle(getTitle(xmlSlide, SLIDETITLE));
+            slide.setTitle(getTitle(xmlSlide, XMLTag.SLIDETITLE.getValue()));
             presentation.addSlide(slide);
 
-            NodeList slideItems = xmlSlide.getElementsByTagName(ITEM);
+            NodeList slideItems = xmlSlide.getElementsByTagName(XMLTag.ITEM.getValue());
             maxItems = slideItems.getLength();
             for (itemNumber = 0; itemNumber < maxItems; itemNumber++) {
                 Element item = (Element) slideItems.item(itemNumber);
@@ -79,17 +79,17 @@ public class LoadXMLFile extends XMLAccessor {
      */
     protected void loadSlideItem(Slide slide, Element item) {
         NamedNodeMap attributes = item.getAttributes();
-        String levelText = attributes.getNamedItem(LEVEL).getTextContent();
+        String levelText = attributes.getNamedItem(XMLTag.LEVEL.getValue()).getTextContent();
         int level = getTextLevel(levelText);
 
-        String type = attributes.getNamedItem(KIND).getTextContent();
+        String type = attributes.getNamedItem(XMLTag.KIND.getValue()).getTextContent();
 
-        if (TEXT.equals(type)) {
+        if (XMLTag.TEXT.getValue().equals(type)) {
             slide.addSlideItem(new TextItem(level, item.getTextContent()));
-        } else if (IMAGE.equals(type)) {
+        } else if (XMLTag.IMAGE.equals(type)) {
             slide.addSlideItem(new BitmapItem(level, item.getTextContent()));
         } else {
-            System.err.println(UNKNOWNTYPE);
+            System.err.println(XMLException.unknownTypeError());
         }
     }
 
@@ -104,7 +104,7 @@ public class LoadXMLFile extends XMLAccessor {
             try {
                 return Integer.parseInt(levelText);
             } catch (NumberFormatException x) {
-                System.err.println(NFE);
+                System.err.println(XMLException.numberFormatError());
             }
         }
         return 1;
