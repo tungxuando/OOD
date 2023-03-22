@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Presentation {
+public class Presentation implements PresentationSlidePrep{
 	private String showTitle; //The title of the presentation
 	private ArrayList<Slide> showList = null; //An ArrayList with slides
 	private int currentSlideNumber = 0; //The number of the current slide
@@ -29,14 +29,17 @@ public class Presentation {
 		clear();
 	}
 
+	@Override
 	public int getSize() {
 		return showList.size();
 	}
 
+	@Override
 	public String getTitle() {
 		return showTitle;
 	}
 
+	@Override
 	public void setTitle(String nt) {
 		showTitle = nt;
 	}

@@ -12,7 +12,7 @@ import java.util.Vector;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Slide {
+public class Slide implements PresentationSlidePrep {
     //public final static int WIDTH = 1200, HEIGHT = 800;
     protected String title; //The title is kept separately
     protected Vector<SlideItem> items; //The SlideItems are kept in a vector
@@ -32,11 +32,13 @@ public class Slide {
     }
 
     //Return the title of a slide
+    @Override
     public String getTitle() {
         return title;
     }
 
     //Change the title of a slide
+    @Override
     public void setTitle(String newTitle) {
         title = newTitle;
     }
@@ -58,6 +60,7 @@ public class Slide {
     }
 
     //Returns the size of a slide
+    @Override
     public int getSize() {
         return items.size();
     }
