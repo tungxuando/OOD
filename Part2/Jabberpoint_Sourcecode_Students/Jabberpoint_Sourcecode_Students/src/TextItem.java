@@ -1,5 +1,7 @@
+import Style.Style;
+import Style.StyleHelper;
+
 import java.awt.*;
-import java.awt.font.FontRenderContext;
 import java.awt.font.LineBreakMeasurer;
 import java.awt.font.TextAttribute;
 import java.awt.font.TextLayout;
@@ -55,7 +57,7 @@ public class TextItem extends SlideItem {
      * @return the bounding box as Rectangle
      */
     public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style myStyle) {
-        int xsize = 0, ysize = Styles.getLeadingStyle(myStyle, scale);
+        int xsize = 0, ysize = StyleHelper.getLeadingStyle(myStyle, scale);
 
         List<TextLayout> layouts = getLayouts(graphics, scale, myStyle);
         for (TextLayout layout : layouts) {

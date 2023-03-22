@@ -1,3 +1,6 @@
+import Style.Style;
+import Style.StyleHelper;
+
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.util.Vector;
@@ -86,7 +89,7 @@ public class Slide {
     }
 
 	private int getElements(Graphics graphics, ImageObserver observer, int y, Rectangle area, SlideItem slideItem ) {
-		Style style = Styles.getStyle(slideItem.getLevel());
+		Style style = StyleHelper.getStyle(slideItem.getLevel());
 		slideItem.drawItem(graphics, observer, getScale(area), style, area.x, y);
 
 		return slideItem.getBoundingBox(graphics, observer, getScale(area), style).height;

@@ -1,7 +1,9 @@
+package Style;
+
 import java.awt.Color;
 import java.awt.Font;
 
-/** <p>Style stands for Indent, Color, Font and Leading.</p>
+/** <p>Style.Style stands for Indent, Color, Font and Leading.</p>
  * <p>The link between a style number and a item level is hard-linked:
  * in Slide the style is grabbed for an item
  * with a style number the same as the item level.</p>

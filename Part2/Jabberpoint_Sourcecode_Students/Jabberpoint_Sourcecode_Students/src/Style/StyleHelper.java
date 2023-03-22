@@ -1,10 +1,12 @@
+package Style;
+
 import java.awt.*;
 
-public class Styles {
-    //NOTE: Extracted from Style.java
+public class StyleHelper {
+    //NOTE: Extracted from Style.Style.java
     private static Style[] styles;
 
-    public Styles(){
+    public StyleHelper(){
 
     }
     public static void createStyles(){
@@ -19,7 +21,7 @@ public class Styles {
     /**
      * Get the style for a given item level.
      * @param level The item level.
-     * @return The Style for that level.
+     * @return The Style.Style for that level.
      */
     public static Style getStyle(int level) {
         if (level >= styles.length) {
