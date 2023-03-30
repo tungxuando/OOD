@@ -33,5 +33,5 @@ public abstract class SlideItem {
     public abstract Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style style);
 
     //Draws the item
-    public abstract void drawItem(Graphics g, ImageObserver observer, float scale, Style style, int x, int y);
+    public abstract void drawItem(Graphics graphics, ImageObserver observer, float scale, Style style, int x, int y);
 }

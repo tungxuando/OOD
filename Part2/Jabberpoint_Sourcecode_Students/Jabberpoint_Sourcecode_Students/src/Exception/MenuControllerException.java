@@ -9,7 +9,7 @@ public class MenuControllerException extends Exception {
         return "Save Error";
     }
 
-    public static String iOException () {
+    public static String iOException() {
         return "IO Exception";
     }
 

@@ -14,6 +14,7 @@ public class HelpMenu extends MenuBar {
     public HelpMenu(PresentationFrame presentationFrame) {
         this.presentationFrame = presentationFrame;
     }
+
     public Menu makeAboutMenu() {
         Menu helpMenu = new Menu(HELP);
         helpButton(helpMenu);

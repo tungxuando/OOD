@@ -1,17 +1,12 @@
 package Controller;
 
-import About.AboutBox;
-import Presentation.Presentation;
-import Xml.LoadXMLFile;
-import Xml.SaveXMLFile;
-import Presentation.PresentationFrame;
 import Menu.FileMenu;
-import Menu.ViewMenu;
 import Menu.HelpMenu;
+import Menu.ViewMenu;
+import Presentation.Presentation;
+import Presentation.PresentationFrame;
 
-import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 /**
  * <p>The controller for the menu</p>

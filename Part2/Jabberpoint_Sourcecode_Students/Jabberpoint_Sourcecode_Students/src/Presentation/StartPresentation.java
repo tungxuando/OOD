@@ -1,16 +1,12 @@
 package Presentation;
 
-import Xml.LoadSaveXML;
 import Menu.FileMenu;
-import Xml.LoadXMLFile;
-import Xml.SaveXMLFile;
 import Xml.XMLAccessor;
 
 import java.io.IOException;
 
 public class StartPresentation {
     public static void openPresentation(Presentation presentation) throws IOException {
-
         XMLAccessor loadXmlFile = new XMLAccessor();
         loadXmlFile.loadFile(presentation, FileMenu.TESTFILE);
     }

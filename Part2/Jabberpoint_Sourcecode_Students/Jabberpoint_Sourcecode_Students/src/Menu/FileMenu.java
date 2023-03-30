@@ -1,23 +1,21 @@
 package Menu;
 
-import Controller.MenuField;
 import Exception.MenuControllerException;
 import Presentation.Presentation;
 import Presentation.PresentationFrame;
 import Presentation.StartPresentation;
-import Xml.LoadXMLFile;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class FileMenu   {
+public class FileMenu {
+    public static final String TESTFILE = "testPresentation.xml";
+    public static final String SAVEFILE = "savedPresentation.xml";
     protected static final String FILE = "File";
     protected static final String OPEN = "Open";
     protected static final String NEW = "New";
     protected static final String SAVE = "Save";
-    public static final String TESTFILE = "testPresentation.xml";
-    public static final String SAVEFILE = "savedPresentation.xml";
     private PresentationFrame presentationFrame;
     private MenuItem menuItem;
 
@@ -42,7 +40,7 @@ public class FileMenu   {
     }
 
     private void saveButton(Menu fileMenu) {
-        fileMenu.add(menuItem =  MakeMenuItemHelper.makeMenuItem(SAVE)); //START SAVE
+        fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(SAVE)); //START SAVE
         menuItem.addActionListener(e -> {
             try {
                 StartPresentation.savePresentation(presentationFrame.presentation);
@@ -60,7 +58,7 @@ public class FileMenu   {
     private void openButton(Menu fileMenu) {
         fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(OPEN));//START OPEN
         menuItem.addActionListener(actionEvent -> {
-           presentationFrame.presentation.clear();
+            presentationFrame.presentation.clear();
             try {
                 StartPresentation.openPresentation(presentationFrame.presentation);
                 this.presentationFrame.presentation.setSlideNumber(0);

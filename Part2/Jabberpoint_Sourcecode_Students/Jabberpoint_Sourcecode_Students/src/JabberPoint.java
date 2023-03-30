@@ -6,6 +6,7 @@ import Xml.LoadXMLFile;
 
 import javax.swing.*;
 import java.io.IOException;
+
 /**
  * JabberPoint Main Program
  * <p>This program is distributed under the terms of the accompanying

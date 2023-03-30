@@ -13,17 +13,23 @@ import java.io.IOException;
  */
 
 public class XMLAccessor implements LoadSaveXML {
+    private final LoadXMLFile loadXMLFile;
+    private final SaveXMLFile saveXMLFile;
+
     public XMLAccessor() {
+        loadXMLFile = new LoadXMLFile();
+        saveXMLFile = new SaveXMLFile();
     }
+
     @Override
     public void loadFile(Presentation presentation, String filename) throws IOException {
-        LoadXMLFile loadXMLFile = new LoadXMLFile();
+
         loadXMLFile.loadFile(presentation, filename);
     }
 
     @Override
     public void saveFile(Presentation presentation, String filename) throws IOException {
-        SaveXMLFile saveXMLFile = new SaveXMLFile();
+
         saveXMLFile.saveFile(presentation, filename);
     }
 }
