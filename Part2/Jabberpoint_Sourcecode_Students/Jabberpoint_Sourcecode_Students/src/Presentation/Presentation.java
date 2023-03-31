@@ -38,7 +38,7 @@ public class Presentation implements PresentationSlidePrep {
 
     @Override
     public String getTitle() {
-        return showTitle;
+        return this.showTitle;
     }
 
     @Override

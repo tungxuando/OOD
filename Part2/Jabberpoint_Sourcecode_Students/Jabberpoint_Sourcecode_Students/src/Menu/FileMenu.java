@@ -35,28 +35,28 @@ public class FileMenu {
     }
 
     private void exitButton(Menu fileMenu) {
-        fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem("Exit")); // START EXIT
-        menuItem.addActionListener(actionEvent -> exitPresentation(presentationFrame.presentation)); // END EXIT
+        fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem("Exit"));
+        menuItem.addActionListener(actionEvent -> exitPresentation(presentationFrame.presentation));
     }
 
     private void saveButton(Menu fileMenu) {
-        fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(SAVE)); //START SAVE
+        fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(SAVE));
         menuItem.addActionListener(e -> {
             try {
                 StartPresentation.savePresentation(presentationFrame.presentation);
             } catch (IOException exc) {
                 JOptionPane.showMessageDialog(presentationFrame.frame, MenuControllerException.iOException() + exc, MenuControllerException.saveErrorException(), JOptionPane.ERROR_MESSAGE);
             }
-        }); //END SAVE
+        });
     }
 
     private void newButton(Menu fileMenu) {
-        fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(NEW)); //START NEW
-        menuItem.addActionListener(actionEvent -> StartPresentation.newPresentation(presentationFrame)); //END NEW
+        fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(NEW));
+        menuItem.addActionListener(actionEvent -> StartPresentation.newPresentation(presentationFrame));
     }
 
     private void openButton(Menu fileMenu) {
-        fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(OPEN));//START OPEN
+        fileMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(OPEN));
         menuItem.addActionListener(actionEvent -> {
             presentationFrame.presentation.clear();
             try {
@@ -66,7 +66,7 @@ public class FileMenu {
                 JOptionPane.showMessageDialog(presentationFrame.frame, MenuControllerException.iOException() + exc, MenuControllerException.loadErrorException(), JOptionPane.ERROR_MESSAGE);
             }
             presentationFrame.frame.repaint();
-        }); //END OPEN
+        });
     }
 
     private void exitPresentation(Presentation presentation) {

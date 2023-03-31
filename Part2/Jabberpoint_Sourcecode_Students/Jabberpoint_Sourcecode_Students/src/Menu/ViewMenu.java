@@ -31,18 +31,18 @@ public class ViewMenu {
 
     private void next(Menu viewMenu) {
         viewMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(NEXT));
-        menuItem.addActionListener(actionEvent -> presentationFrame.presentation.nextSlide()); //Next Slide
+        menuItem.addActionListener(actionEvent -> presentationFrame.presentation.nextSlide());
     }
 
     private void previous(Menu viewMenu) {
         viewMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(PREV));
-        menuItem.addActionListener(actionEvent -> presentationFrame.presentation.prevSlide()); //Prev Slide
+        menuItem.addActionListener(actionEvent -> presentationFrame.presentation.prevSlide());
     }
 
     private void goTo(Menu viewMenu) {
-        viewMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(GOTO)); //Goto
+        viewMenu.add(menuItem = MakeMenuItemHelper.makeMenuItem(GOTO));
         menuItem.addActionListener(actionEvent -> {
-            String pageNumberStr = JOptionPane.showInputDialog(PAGENR);//Enter page no
+            String pageNumberStr = JOptionPane.showInputDialog(PAGENR);
             int pageNumber = Integer.parseInt(pageNumberStr);
 
             if (pageNumber > 0 && pageNumber <= presentationFrame.presentation.getSize()) {
