@@ -48,7 +48,7 @@ This class is a graphical component that displays slides. It sets up the backgro
 
 - Long methods
 
-  **Solution: **Extract methods
+  **Solution**: Extract methods
 
 This solution gives better maintability since each method does its own responsibility
 
