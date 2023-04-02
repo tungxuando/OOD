@@ -64,7 +64,7 @@ This solution let those classes access the measurement without creating duplicat
 
 It is not possible to create any additional styles without modifying the code.
 
-**Solution:** Create StyleHelper class
+**Solution**: Create StyleHelper class
 
 This solution allows future changes to the style without modifying the base class
 
