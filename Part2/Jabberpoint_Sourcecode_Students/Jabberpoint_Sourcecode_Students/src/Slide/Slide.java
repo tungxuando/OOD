@@ -41,13 +41,13 @@ public class Slide implements PresentationSlidePrep {
     //Return the title of a slide
     @Override
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     //Change the title of a slide
     @Override
     public void setTitle(String newTitle) {
-        title = newTitle;
+        this.title = newTitle;
     }
 
     //Create a Item.TextItem out of a String and add the Item.TextItem
@@ -63,13 +63,13 @@ public class Slide implements PresentationSlidePrep {
 
     //Return all the SlideItems in a vector
     public Vector<SlideItem> getSlideItems() {
-        return items;
+        return this.items;
     }
 
     //Returns the size of a slide
     @Override
     public int getSize() {
-        return items.size();
+        return this.items.size();
     }
 
     /**

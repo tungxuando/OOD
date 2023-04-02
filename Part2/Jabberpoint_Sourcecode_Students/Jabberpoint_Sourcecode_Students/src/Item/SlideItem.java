@@ -16,17 +16,13 @@ import java.awt.image.ImageObserver;
 public abstract class SlideItem {
     private int level = 0; //The level of the Item.SlideItem
 
-    public SlideItem(int lev) {
-        level = lev;
+    public SlideItem(int level) {
+        this.level = level;
     }
-
-//	public Item.SlideItem() {
-//		this(0);
-//	}
 
     //Returns the level
     public int getLevel() {
-        return level;
+        return this.level;
     }
 
     //Returns the bounding box

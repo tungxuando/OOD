@@ -33,7 +33,7 @@ public class Presentation implements PresentationSlidePrep {
 
     @Override
     public int getSize() {
-        return showList.size();
+        return this.showList.size();
     }
 
     @Override
@@ -42,8 +42,8 @@ public class Presentation implements PresentationSlidePrep {
     }
 
     @Override
-    public void setTitle(String nt) {
-        showTitle = nt;
+    public void setTitle(String newTitle) {
+        this.showTitle = newTitle;
     }
 
     public void setShowView(SlideViewerComponent slideViewerComponent) {
@@ -52,28 +52,28 @@ public class Presentation implements PresentationSlidePrep {
 
     //Returns the number of the current slide
     public int getSlideNumber() {
-        return currentSlideNumber;
+        return this.currentSlideNumber;
     }
 
     //Change the current slide number and report it in the window
     public void setSlideNumber(int number) {
-        currentSlideNumber = number;
-        if (slideViewComponent != null) {
-            slideViewComponent.updateContent(this, getCurrentSlide());
+        this.currentSlideNumber = number;
+        if (this.slideViewComponent != null) {
+            this.slideViewComponent.updateContent(this, getCurrentSlide());
         }
     }
 
     //Navigate to the previous slide unless we are at the first slide
     public void prevSlide() {
-        if (currentSlideNumber > 0) {
-            setSlideNumber(currentSlideNumber - 1);
+        if (this.currentSlideNumber > 0) {
+            setSlideNumber(this.currentSlideNumber - 1);
         }
     }
 
     //Navigate to the next slide unless we are at the last slide
     public void nextSlide() {
-        if (currentSlideNumber < (showList.size() - 1)) {
-            setSlideNumber(currentSlideNumber + 1);
+        if (this.currentSlideNumber < (this.showList.size() - 1)) {
+            setSlideNumber(this.currentSlideNumber + 1);
         }
     }
 

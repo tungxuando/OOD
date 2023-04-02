@@ -27,9 +27,9 @@ public class SlideViewerComponent extends JComponent {
     private Slide slide; //The current slide
     private Presentation presentation; //The presentation //NOTE: Removes null
 
-    public SlideViewerComponent(Presentation pres, JFrame frame) {
+    public SlideViewerComponent(Presentation presentation, JFrame frame) {
         setBackground(BGCOLOR);
-        presentation = pres;
+        this.presentation = presentation;
         labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
         this.frame = frame;
     }

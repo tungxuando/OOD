@@ -28,7 +28,7 @@ public class Style {
         this.leading = leading;
     }
 
-    public static String getFONTNAME() {
+    public static String getFontName() {
         return FONTNAME;
     }
 

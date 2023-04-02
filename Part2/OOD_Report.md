@@ -22,9 +22,13 @@ This class control the creation of menu items File, View, Help.
 
 - Does not have proper error handling
 
+- Goto bug that allows numbers > total of slides.
+
   **Solution**: Extract classes and methods, create MenuControllerException
 
-This solution give each class FileMenu, HelpMenu, ViewMenu each own responsibility and methods are extracted with clear method name (Single Responsibility Principle - SOLID) and also eliminate the MenuController as a god class (Interface Segregation Principle). MakeMenuItemHelper is used in the 3 mentioned class so it is also extracted rather than having 3 duplicated method in 3 classes. Fixed goto bug. MenuControllerException handle error message. 
+This solution give each class FileMenu, HelpMenu, ViewMenu each own responsibility and methods are extracted with clear method name (Single Responsibility Principle - SOLID) and also eliminate the MenuController as a god class (Interface Segregation Principle). MakeMenuItemHelper is used in the 3 mentioned class so it is also extracted rather than having 3 duplicated method in 3 classes. MenuControllerException handle error message.  
+
+Fixed goto bug.
 
 ### 2. XmlAccessor, Demo Presentation
 
@@ -70,6 +74,10 @@ This solution allows future changes to the style without modifying the base clas
 
 #### 6. Presentation, Slide
 
-An interface can be beneficial to these two classes because they are both using the same methods, such as getTitle(), setTitle(), and getSize(). This would allow the two classes to share the same methods and have less code duplication. The interface would also provide a clean way of separating the two classes and providing a way to easily access the methods.
+An interface can be beneficial to these two classes because they are both using the same methods, such as getTitle(), setTitle(), and getSize(). This would allow the two classes to share the same methods and have less code duplication as for the methods. The interface would also provide a clean way of separating the two classes and providing a way to easily access the methods. "Change preventer" in refactoring guru.
 
-**Solution**: Create PresentationSlidePrep interface
+**Solution**: Extract PresentationSlidePrep interface
+
+#### 7. Others small changes
+
+Method signatures rearragement, methods renaming, variable renaming, packaging classes.
